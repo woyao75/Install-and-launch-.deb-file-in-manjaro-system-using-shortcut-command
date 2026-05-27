@@ -1,0 +1,1 @@
+# Install-and-launch-.deb-file-in-manjaro-system-using-shortcut-command
