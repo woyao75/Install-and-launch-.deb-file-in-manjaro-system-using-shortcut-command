@@ -125,7 +125,7 @@ sudo cat /usr/share/applications/CC\ Switch.desktop
 >其中
 >`Exec`=后面的内容为桌面环境启动程序时执行的命令。
 
-# 如果cc-switch启动的是旧AppImage
+# 🤔如果cc-switch启动的是旧AppImage(以下步骤可能对你有帮助)
 比如：
 执行：
 ```bash
@@ -162,21 +162,59 @@ command -v cc-switch
 type -a cc-switch
 ```
 
-# 删除旧快捷命令方式
+## 删除旧快捷命令方式
+删除旧的本地快捷命令：
+```bash
+rm -f ~/.local/bin/cc-switch
+```
 
+清理shell命令缓存：
+```bash
+hash -r
+```
 
+然后重新检查：
+```bash
+command -v cc-switch
+```
 
+此时输出应该类似于：
+```bash
+/usr/bin/cc-switch
+```
 
+再次运行：
+```bash
+cc-switch
+```
 
+# 🤨为你的cc-switch创建一个快捷命令
 
+首先创建本地命令目录：
+```bash
+mkdir -p ~/.local/bin
+```
 
+创建快捷脚本：
+```bash
+cat > ~/.local/bin/ccs <<'EOF'
+#!/usr/bin/env bash
+exec /usr/bin/cc-switch "$@"
+EOF
+```
 
+添加执行权限：
+```bash
+chmod +x ~/.local/bin/ccs
+```
 
+确保 `~/.local/bin `在 PATH 中：
+```bash
+echo $PATH | tr ':' '\n' | grep "$HOME/.local/bin"
+```
 
-
-
-
-
-
-
-
+之后就可以使用：
+```bash
+ccs
+```
+打开CC-Switch。
