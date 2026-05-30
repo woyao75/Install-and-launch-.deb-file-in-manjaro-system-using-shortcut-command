@@ -1,7 +1,7 @@
 # Install-and-launch-.deb-file-in-manjaro-system-using-shortcut-command
 
 该文档演示如何在 Manjaro 中，在无网络代理、无法通过 AUR 仓库下载的情况下，手动下载 `.deb` 文件，并使用快捷命令成功启动程序。
-本文以安装 **CC-Switch** 为例。
+本文以安装 **CC-Switch** 为例。（若有更棒的方法欢迎PR😊）
 
 ---
 
